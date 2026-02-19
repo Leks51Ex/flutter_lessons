@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_stepik/shared_preferences/shared_prefs_custom/app_settings.dart';
+import 'package:flutter_stepik/shared_preferences/share_preferences_lib/shared_prefs_custom/app_settings.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AppSettingsPage extends StatefulWidget {

@@ -17,11 +17,14 @@ import 'package:flutter_stepik/network/http/dart_io_test.dart';
 import 'package:flutter_stepik/network/http/test_project/page_interceptor.dart';
 import 'package:flutter_stepik/network/http/test_project/test_page.dart';
 import 'package:flutter_stepik/network/websocket/test_project/chat_ui.dart';
+import 'package:flutter_stepik/shared_preferences/flutter_secure_storage/flutter_secure_storage_test.dart';
 import 'package:flutter_stepik/shared_preferences/share_preferences_lib/shared_prefs_test.dart';
-import 'package:flutter_stepik/shared_preferences/shared_prefs_custom/app_settings_page.dart';
+import 'package:flutter_stepik/shared_preferences/share_preferences_lib/shared_prefs_custom/app_settings_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main(List<String> args) async{
+     testGetFss();
+
     final preferences = await SharedPreferences.getInstance();
   runApp(MaterialApp(home: AppSettingsPage(preferences: preferences)));
 }
