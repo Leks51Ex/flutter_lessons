@@ -21,27 +21,50 @@ import 'package:flutter_stepik/shared_preferences/flutter_secure_storage/flutter
 import 'package:flutter_stepik/shared_preferences/share_preferences_lib/shared_prefs_test.dart';
 import 'package:flutter_stepik/shared_preferences/share_preferences_lib/shared_prefs_custom/app_settings_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sqflite/sqflite.dart';
 
-void main(List<String> args) async{
-     testGetFss();
+Future<void> _initDatabase() async {
+  final db = await openDatabase('app_database.db');
+  await db.execute('''
+  CREATE TABLE IF NOT EXISTS users (
+      id INTEGER PRIMARY KEY,
+      name TEXT NOT NULL,
+      email TEXT UNIQUE NOT NULL,
+      age INTEGER
+  );
+  ''');
+}
 
-    final preferences = await SharedPreferences.getInstance();
+Future<void> _addUser() async {
+  final db = await openDatabase('app_database.db');
+  await db.insert('users', {
+    'name': 'Елена',
+    'email': 'elena@gmail.com',
+    'age': 25,
+  });
+}
+
+void main(List<String> args) async {
+  // _initDatabase();
+  // _addUser();
+  final preferences = await SharedPreferences.getInstance();
   runApp(MaterialApp(home: AppSettingsPage(preferences: preferences)));
 }
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
-
-final myRouterConfig = MyRouterConfig(routerDelegate: MyRouteDelegate(), routeInformationParser: MyRouteInformationParser(), routeInformationProvider: myRouteInfoProvider, backButtonDispatcher: RootBackButtonDispatcher(),);
+final myRouterConfig = MyRouterConfig(
+  routerDelegate: MyRouteDelegate(),
+  routeInformationParser: MyRouteInformationParser(),
+  routeInformationProvider: myRouteInfoProvider,
+  backButtonDispatcher: RootBackButtonDispatcher(),
+);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: ChatScreen()
-    );
-    
+    return MaterialApp(home: ChatScreen());
   }
 }
