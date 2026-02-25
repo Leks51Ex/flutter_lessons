@@ -45,8 +45,8 @@ Future<void> _addUser() async {
 }
 
 void main(List<String> args) async {
-  // _initDatabase();
-  // _addUser();
+  _initDatabase();
+  _addUser();
   final preferences = await SharedPreferences.getInstance();
   runApp(MaterialApp(home: AppSettingsPage(preferences: preferences)));
 }
