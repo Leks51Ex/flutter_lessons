@@ -1,4 +1,4 @@
-import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+import 'package:sqflite/sqflite.dart';
 
 class SqfliteTest {
   late final Database _db;
@@ -7,9 +7,14 @@ class SqfliteTest {
     _init();
   }
 
+  /// ONLY FOR LINUX AND WINDOWS AND FOR sqflite_commonff lib
+  void setubDataBase() {
+    //sqfliteFfiInit();
+    //dtabaseFactory = databaseFactoryFfi;
+  }
+
   Future<void> _init() async {
-    sqfliteFfiInit();
-    databaseFactory = databaseFactoryFfi;
+    //setubDataBase();
 
     _db = await databaseFactory.openDatabase('app_database.db');
 
