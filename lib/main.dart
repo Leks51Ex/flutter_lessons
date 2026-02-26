@@ -20,33 +20,16 @@ import 'package:flutter_stepik/network/websocket/test_project/chat_ui.dart';
 import 'package:flutter_stepik/shared_preferences/flutter_secure_storage/flutter_secure_storage_test.dart';
 import 'package:flutter_stepik/shared_preferences/share_preferences_lib/shared_prefs_test.dart';
 import 'package:flutter_stepik/shared_preferences/share_preferences_lib/shared_prefs_custom/app_settings_page.dart';
+import 'package:flutter_stepik/shared_preferences/sqflite/sqflite_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sqflite/sqflite.dart';
-
-Future<void> _initDatabase() async {
-  final db = await openDatabase('app_database.db');
-  await db.execute('''
-  CREATE TABLE IF NOT EXISTS users (
-      id INTEGER PRIMARY KEY,
-      name TEXT NOT NULL,
-      email TEXT UNIQUE NOT NULL,
-      age INTEGER
-  );
-  ''');
-}
-
-Future<void> _addUser() async {
-  final db = await openDatabase('app_database.db');
-  await db.insert('users', {
-    'name': 'Елена',
-    'email': 'elena@gmail.com',
-    'age': 25,
-  });
-}
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 void main(List<String> args) async {
-  _initDatabase();
-  _addUser();
+  SqfliteTest sqfliteTest = SqfliteTest();
+  await sqfliteTest.updateUsers();
+  await sqfliteTest.getUsers();
+
   final preferences = await SharedPreferences.getInstance();
   runApp(MaterialApp(home: AppSettingsPage(preferences: preferences)));
 }
