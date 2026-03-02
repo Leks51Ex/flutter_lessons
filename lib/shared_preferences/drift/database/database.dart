@@ -1,0 +1,1 @@
+class AppDataBase extends _$AppDataBase {}
