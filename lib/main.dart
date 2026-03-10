@@ -5,11 +5,12 @@ import 'package:flutter_stepik/navigation/declarative_navigation/example/route_i
 import 'package:flutter_stepik/navigation/declarative_navigation/example/route_info_provider.dart';
 import 'package:flutter_stepik/network/websocket/test_project/chat_ui.dart';
 import 'package:flutter_stepik/shared_preferences/share_preferences_lib/shared_prefs_custom/app_settings_page.dart';
+import 'package:flutter_stepik/tests/calculator_app/calculator_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main(List<String> args) async {
   final preferences = await SharedPreferences.getInstance();
-  runApp(MaterialApp(home: AppSettingsPage(preferences: preferences)));
+  runApp(MaterialApp(home: CalculatorScreen()));
 }
 
 final navigatorKey = GlobalKey<NavigatorState>();
