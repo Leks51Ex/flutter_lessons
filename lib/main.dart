@@ -4,6 +4,8 @@ import 'package:flutter_stepik/navigation/declarative_navigation/example/route_d
 import 'package:flutter_stepik/navigation/declarative_navigation/example/route_info_parser.dart';
 import 'package:flutter_stepik/navigation/declarative_navigation/example/route_info_provider.dart';
 import 'package:flutter_stepik/network/websocket/test_project/chat_ui.dart';
+import 'package:flutter_stepik/shared_preferences/drift/database/database.dart';
+import 'package:flutter_stepik/shared_preferences/drift/drift_test.dart';
 import 'package:flutter_stepik/shared_preferences/share_preferences_lib/shared_prefs_custom/app_settings_page.dart';
 import 'package:flutter_stepik/tests/calculator_app/calculator_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -23,7 +25,7 @@ final myRouterConfig = MyRouterConfig(
 );
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
