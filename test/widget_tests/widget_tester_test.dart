@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_stepik/tests/calculator_app/calculator_screen.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'custom_finder.dart';
-import 'custom_matcher.dart';
+import 'utils/custom_finder.dart';
+import 'utils/custom_matcher.dart';
 
 void main() {
   testWidgets('Calculator add button test', (WidgetTester tester) async {
