@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_stepik/localization/localization_test_app/local_app.dart';
 import 'package:flutter_stepik/navigation/declarative_navigation/example/route_config.dart';
 import 'package:flutter_stepik/navigation/declarative_navigation/example/route_delegate.dart';
 import 'package:flutter_stepik/navigation/declarative_navigation/example/route_info_parser.dart';
@@ -29,6 +30,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: ChatScreen());
+    return LocalApp();
   }
 }
