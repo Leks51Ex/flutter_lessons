@@ -51,4 +51,55 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get send => 'Отправить';
+
+  @override
+  String get pizzaSizeLabel => 'Выберите размер пиццы';
+
+  @override
+  String selectedSize(String size) {
+    return 'Выбранный размер пиццы - $size';
+  }
+
+  @override
+  String pizzaSize(String size) {
+    String _temp0 = intl.Intl.selectLogic(size, {
+      'mini': 'Мини',
+      'small': 'Маленький',
+      'medium': 'Средний',
+      'large': 'Большой',
+      'supersize': 'Суперсайз',
+      'other': 'Неизвестный',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String dateFormat1(DateTime date) {
+    final intl.DateFormat dateDateFormat = intl.DateFormat.yMd(localeName);
+    final String dateString = dateDateFormat.format(date);
+
+    return 'Дата $dateString';
+  }
+
+  @override
+  String dateFormat2(DateTime date) {
+    final intl.DateFormat dateDateFormat = intl.DateFormat.yMMMMd(localeName);
+    final String dateString = dateDateFormat.format(date);
+
+    return 'Дата $dateString';
+  }
+
+  @override
+  String dateTimeFormat(DateTime dateTime) {
+    final intl.DateFormat dateTimeDateFormat = intl.DateFormat(
+      'y/M/d H:mm',
+      localeName,
+    );
+    final String dateTimeString = dateTimeDateFormat.format(dateTime);
+
+    return 'Дата и время: $dateTimeString';
+  }
+
+  @override
+  String get updateDateTime => 'Обновить дату и время';
 }

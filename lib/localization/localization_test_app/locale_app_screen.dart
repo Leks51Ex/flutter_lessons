@@ -11,13 +11,22 @@ class LocaleAppScreen extends StatefulWidget {
 }
 
 class _LocaleAppScreenState extends State<LocaleAppScreen> {
+  DateTime? _currentDateTime;
+
   int _counter = 0;
   final _nameController = TextEditingController();
   String? _greeting;
+  String _selectedPizzaSize = 'medium';
 
-  _incrementCounter() {
+  void _incrementCounter() {
     setState(() {
       _counter++;
+    });
+  }
+
+  void _updateDateTime() {
+    setState(() {
+      _currentDateTime = DateTime.now();
     });
   }
 
@@ -62,6 +71,31 @@ class _LocaleAppScreenState extends State<LocaleAppScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Text(
+                _currentDateTime == null
+                    ? 'Date not selected'
+                    : localizations.dateFormat1(_currentDateTime!),
+                style: TextStyle(fontSize: 20),
+              ),
+              SizedBox(height: 16),
+              Text(
+                _currentDateTime == null
+                    ? 'Date not selected'
+                    : localizations.dateFormat2(_currentDateTime!),
+                style: TextStyle(fontSize: 20),
+              ),
+              Text(
+                _currentDateTime == null
+                    ? 'Date not selected'
+                    : localizations.dateTimeFormat(_currentDateTime!),
+                style: const TextStyle(fontSize: 20),
+              ),
+              SizedBox(height: 32),
+              ElevatedButton(
+                onPressed: _updateDateTime,
+                child: Text(localizations.updateDateTime),
+              ),
+              SizedBox(height: 10),
               Row(
                 children: [
                   Expanded(
@@ -110,6 +144,40 @@ class _LocaleAppScreenState extends State<LocaleAppScreen> {
                   _incrementCounter();
                 },
                 child: Text(localizations.orderPizza(_counter)),
+              ),
+              SizedBox(height: 24),
+              Text(
+                localizations.pizzaSizeLabel,
+                style: TextStyle(fontSize: 18),
+              ),
+              SizedBox(height: 8),
+              DropdownButton<String>(
+                value: _selectedPizzaSize,
+                onChanged: (String? newValue) {
+                  if (newValue != null) {
+                    setState(() {
+                      _selectedPizzaSize = newValue;
+                    });
+                  }
+                },
+                items: <String>['mini', 'small', 'medium', 'large', 'supersize']
+                    .map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(localizations.pizzaSize(value)),
+                      );
+                    })
+                    .toList(),
+              ),
+              SizedBox(height: 16),
+              Text(
+                localizations.selectedSize(
+                  localizations.pizzaSize(_selectedPizzaSize),
+                ),
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ],
           ),

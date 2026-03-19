@@ -49,5 +49,63 @@
     "send": "Send",
     "@send": {
         "descriptions": "Text for send button"
-    }
+    },
+    "pizzaSizeLabel": "Select pizza size",
+    "@pizzaSizeLabel": {
+        "description": "Label for pizza size dropdown"
+    },
+    "selectedSize": "Selected pizza size - {size}",
+    "@selectedSize": {
+        "description": "Text showing the selected pizza size",
+        "placeholders": {
+            "size": {
+                "type": "String",
+                "example": "Medium"
+            }
+        }
+    },
+    "pizzaSize": "{size, select, mini{Mini} small{Small} medium{Medium} large{Large} supersize{Supersize} other{Unknown}}",
+    "@pizzaSize": {
+        "description": "Pizza size selection options",
+        "placeholders": {
+            "size": {
+                "type": "String"
+            }
+        }
+    },
+    "dateFormat1": "Date {date}",
+    "@dateFormat1": {
+        "description": "Simple date format",
+        "placeholders": {
+            "date": {
+                "type": "DateTime",
+                "format": "yMd"
+            }
+        }
+    },
+    "dateFormat2": "Date {date}",
+    "@dateFormat2": {
+        "description": "Simple date format",
+        "placeholders": {
+            "date": {
+                "type": "DateTime",
+                "format": "yMMMMd"
+            }
+        }
+    },
+    "dateTimeFormat": "Date and time: {dateTime}",
+    "@dateTimeFormat": {
+        "description": "Combined date and time format",
+        "placeholders": {
+            "dateTime": {
+                "type": "DateTime",
+                "format": "y/M/d H:mm",
+                "isCustomDateFormat": true
+            }
+        }},
+        "updateDateTime": "Update date amnd time",
+        "@updateDateTime": {
+            "description": "Update date and time button"
+      }
+
 }

@@ -31,5 +31,52 @@
             }
         }
     },
-    "send": "Отправить"
+    "send": "Отправить",
+    "pizzaSizeLabel": "Выберите размер пиццы",
+    "selectedSize": "Выбранный размер пиццы - {size}",
+    "@selectedSize": {
+        "placeholders": {
+            "size": {
+                "type": "String",
+                "example": "Средний"
+            }
+        }
+    },
+    "pizzaSize": "{size, select, mini{Мини} small{Маленький} medium{Средний} large{Большой} supersize{Суперсайз} other{Неизвестный}}",
+    "@pizzaSize": {
+        "placeholders": {
+            "size": {
+                "type": "String"
+            }
+        }
+    },
+    "dateFormat1": "Дата {date}",
+    "@dateFormat1": {
+        "placeholders": {
+            "date": {
+                "type": "DateTime",
+                "format": "yMd"
+            }
+        }
+    },
+    "dateFormat2": "Дата {date}",
+    "@dateFormat2": {
+        "placeholders": {
+            "date": {
+                "type": "DateTime",
+                "format": "yMMMMd"
+            }
+        }
+    },
+    "dateTimeFormat": "Дата и время: {dateTime}",
+    "@dateTimeFormat": {
+        "placeholders": {
+            "dateTime": {
+                "type": "DateTime",
+                "format": "y/M/d H:mm",
+                "isCustomDateFormat": true
+            }
+        }},
+        "updateDateTime": "Обновить дату и время"
+ 
 }

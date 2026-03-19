@@ -145,6 +145,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Send'**
   String get send;
+
+  /// Label for pizza size dropdown
+  ///
+  /// In en, this message translates to:
+  /// **'Select pizza size'**
+  String get pizzaSizeLabel;
+
+  /// Text showing the selected pizza size
+  ///
+  /// In en, this message translates to:
+  /// **'Selected pizza size - {size}'**
+  String selectedSize(String size);
+
+  /// Pizza size selection options
+  ///
+  /// In en, this message translates to:
+  /// **'{size, select, mini{Mini} small{Small} medium{Medium} large{Large} supersize{Supersize} other{Unknown}}'**
+  String pizzaSize(String size);
+
+  /// Simple date format
+  ///
+  /// In en, this message translates to:
+  /// **'Date {date}'**
+  String dateFormat1(DateTime date);
+
+  /// Simple date format
+  ///
+  /// In en, this message translates to:
+  /// **'Date {date}'**
+  String dateFormat2(DateTime date);
+
+  /// Combined date and time format
+  ///
+  /// In en, this message translates to:
+  /// **'Date and time: {dateTime}'**
+  String dateTimeFormat(DateTime dateTime);
+
+  /// Update date and time button
+  ///
+  /// In en, this message translates to:
+  /// **'Update date amnd time'**
+  String get updateDateTime;
 }
 
 class _AppLocalizationsDelegate

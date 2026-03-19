@@ -50,4 +50,55 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get send => 'Send';
+
+  @override
+  String get pizzaSizeLabel => 'Select pizza size';
+
+  @override
+  String selectedSize(String size) {
+    return 'Selected pizza size - $size';
+  }
+
+  @override
+  String pizzaSize(String size) {
+    String _temp0 = intl.Intl.selectLogic(size, {
+      'mini': 'Mini',
+      'small': 'Small',
+      'medium': 'Medium',
+      'large': 'Large',
+      'supersize': 'Supersize',
+      'other': 'Unknown',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String dateFormat1(DateTime date) {
+    final intl.DateFormat dateDateFormat = intl.DateFormat.yMd(localeName);
+    final String dateString = dateDateFormat.format(date);
+
+    return 'Date $dateString';
+  }
+
+  @override
+  String dateFormat2(DateTime date) {
+    final intl.DateFormat dateDateFormat = intl.DateFormat.yMMMMd(localeName);
+    final String dateString = dateDateFormat.format(date);
+
+    return 'Date $dateString';
+  }
+
+  @override
+  String dateTimeFormat(DateTime dateTime) {
+    final intl.DateFormat dateTimeDateFormat = intl.DateFormat(
+      'y/M/d H:mm',
+      localeName,
+    );
+    final String dateTimeString = dateTimeDateFormat.format(dateTime);
+
+    return 'Date and time: $dateTimeString';
+  }
+
+  @override
+  String get updateDateTime => 'Update date amnd time';
 }
