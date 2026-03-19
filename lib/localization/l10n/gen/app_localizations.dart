@@ -187,6 +187,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Update date amnd time'**
   String get updateDateTime;
+
+  /// Basic integer number format
+  ///
+  /// In en, this message translates to:
+  /// **'Integer: {number}'**
+  String formatInteger(int number);
+
+  /// Decimal number format with 2 decimal places
+  ///
+  /// In en, this message translates to:
+  /// **'Decimal: {number}'**
+  String formatDecimal(double number);
+
+  /// Currency format
+  ///
+  /// In en, this message translates to:
+  /// **'Currency: {amount}'**
+  String formatCurrency(double amount);
 }
 
 class _AppLocalizationsDelegate

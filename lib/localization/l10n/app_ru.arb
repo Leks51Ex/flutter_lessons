@@ -77,6 +77,11 @@
                 "isCustomDateFormat": true
             }
         }},
-        "updateDateTime": "Обновить дату и время"
+        "updateDateTime": "Обновить дату и время",
+        "formatInteger": "Целое: {number}",
+        "formatDecimal": "С плавающей точкой: {number}",
+
+      "formatCurrency": "Валюта: {amount}"
+
  
 }

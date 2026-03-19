@@ -102,4 +102,32 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get updateDateTime => 'Обновить дату и время';
+
+  @override
+  String formatInteger(int number) {
+    final intl.NumberFormat numberNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String numberString = numberNumberFormat.format(number);
+
+    return 'Целое: $numberString';
+  }
+
+  @override
+  String formatDecimal(double number) {
+    final intl.NumberFormat numberNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String numberString = numberNumberFormat.format(number);
+
+    return 'С плавающей точкой: $numberString';
+  }
+
+  @override
+  String formatCurrency(double amount) {
+    final intl.NumberFormat amountNumberFormat = intl.NumberFormat.currency(
+      locale: localeName,
+    );
+    final String amountString = amountNumberFormat.format(amount);
+
+    return 'Валюта: $amountString';
+  }
 }

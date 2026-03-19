@@ -17,10 +17,21 @@ class _LocaleAppScreenState extends State<LocaleAppScreen> {
   final _nameController = TextEditingController();
   String? _greeting;
   String _selectedPizzaSize = 'medium';
+  int _integerValue = 1234567;
+  double _decimalValue = 1234.56;
+  double _currencyValue = 1234.56;
 
   void _incrementCounter() {
     setState(() {
       _counter++;
+    });
+  }
+
+  void updateValues() {
+    setState(() {
+      _integerValue = (_integerValue * 1.5).round();
+      _decimalValue = _decimalValue * 1.25;
+      _currencyValue = _currencyValue * 1.3;
     });
   }
 
@@ -96,6 +107,27 @@ class _LocaleAppScreenState extends State<LocaleAppScreen> {
                 child: Text(localizations.updateDateTime),
               ),
               SizedBox(height: 10),
+
+              Text(
+                localizations.formatInteger(_integerValue),
+                style: const TextStyle(fontSize: 20),
+              ),
+              SizedBox(height: 8),
+              Text(
+                localizations.formatDecimal(_decimalValue),
+                style: const TextStyle(fontSize: 20),
+              ),
+              SizedBox(height: 8),
+              Text(
+                localizations.formatCurrency(_currencyValue),
+                style: const TextStyle(fontSize: 20),
+              ),
+              SizedBox(height: 8),
+              ElevatedButton(
+                onPressed: updateValues,
+                child: Text('Update values'),
+              ),
+              SizedBox(height: 8),
               Row(
                 children: [
                   Expanded(
