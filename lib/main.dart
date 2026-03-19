@@ -13,7 +13,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 void main(List<String> args) async {
   final preferences = await SharedPreferences.getInstance();
-  runApp(MaterialApp(home: CalculatorScreen()));
+  runApp(LocalApp());
 }
 
 final navigatorKey = GlobalKey<NavigatorState>();

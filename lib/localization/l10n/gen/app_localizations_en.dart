@@ -18,5 +18,36 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pizzaIngredients => 'Ingredients: Pepperoni, Cheese, Tomato Sauce';
 
   @override
-  String get orderPizzaButton => 'Order 1 more pizza';
+  String orderPizzaButton(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Order 1 more pizza',
+      zero: 'Order first pizza',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String orderPizza(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'You ordered $count pizzas',
+      one: 'You ordered 1 pizza',
+      zero: 'You haven\'t ordered any pizzas yet',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get nameHint => 'Enter yoor name';
+
+  @override
+  String hello(String userName) {
+    return 'Hello $userName!';
+  }
+
+  @override
+  String get send => 'Send';
 }

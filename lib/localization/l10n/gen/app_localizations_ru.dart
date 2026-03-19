@@ -18,5 +18,37 @@ class AppLocalizationsRu extends AppLocalizations {
   String get pizzaIngredients => 'Ингредиенты: Пепперони, Сыр, Томатный соус';
 
   @override
-  String get orderPizzaButton => 'Заказать ещё 1 пиццу';
+  String orderPizzaButton(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Заказать ещё 1 пиццу',
+      zero: 'Заказать первую пиццу',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String orderPizza(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Вы заказали $count пицц',
+      few: 'Вы заказали $count пиццы',
+      one: 'Вы заказали 1 пиццу',
+      zero: 'Вы еще не заказали ни одной пиццы',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get nameHint => 'Введите ваше имя';
+
+  @override
+  String hello(String userName) {
+    return 'Привет, $userName!';
+  }
+
+  @override
+  String get send => 'Отправить';
 }

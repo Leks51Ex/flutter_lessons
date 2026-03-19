@@ -119,8 +119,32 @@ abstract class AppLocalizations {
   /// Order additional pizzas
   ///
   /// In en, this message translates to:
-  /// **'Order 1 more pizza'**
-  String get orderPizzaButton;
+  /// **'{count, plural, =0{Order first pizza} other{Order 1 more pizza}}'**
+  String orderPizzaButton(int count);
+
+  /// Shows the number of ordered pizzas
+  ///
+  /// In en, this message translates to:
+  /// **'{count , plural, =0{You haven\'t ordered any pizzas yet} =1{You ordered 1 pizza} other{You ordered {count} pizzas}}'**
+  String orderPizza(int count);
+
+  /// No description provided for @nameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter yoor name'**
+  String get nameHint;
+
+  /// Simple hello greeting with user's name
+  ///
+  /// In en, this message translates to:
+  /// **'Hello {userName}!'**
+  String hello(String userName);
+
+  /// No description provided for @send.
+  ///
+  /// In en, this message translates to:
+  /// **'Send'**
+  String get send;
 }
 
 class _AppLocalizationsDelegate
