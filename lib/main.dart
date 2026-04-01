@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_stepik/animations/animated_widgets/animated_container.dart';
+import 'package:flutter_stepik/animations/animated_widgets/animated_rotation.dart';
+import 'package:flutter_stepik/animations/animated_widgets/animated_scale.dart';
+import 'package:flutter_stepik/animations/animated_widgets/animated_size.dart';
+import 'package:flutter_stepik/animations/animated_widgets/animated_slide.dart';
+import 'package:flutter_stepik/animations/custom_animations/custom_animated_container.dart';
+import 'package:flutter_stepik/animations/hero.dart';
+import 'package:flutter_stepik/animations/staggerd_animations/staggered_animations.dart';
 import 'package:flutter_stepik/localization/localization_test_app/local_app.dart';
 import 'package:flutter_stepik/navigation/declarative_navigation/example/route_config.dart';
 import 'package:flutter_stepik/navigation/declarative_navigation/example/route_delegate.dart';
@@ -13,7 +21,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 void main(List<String> args) async {
   final preferences = await SharedPreferences.getInstance();
-  runApp(LocalApp());
+  runApp(MyApp());
 }
 
 final navigatorKey = GlobalKey<NavigatorState>();
@@ -30,6 +38,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LocalApp();
+    return MaterialApp(home: CustomStaggeredAnimatedContainer());
   }
 }
