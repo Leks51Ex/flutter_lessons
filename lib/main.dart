@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_stepik/animations/animated_widgets/animated_container.dart';
 import 'package:flutter_stepik/animations/animated_widgets/animated_rotation.dart';
 import 'package:flutter_stepik/animations/animated_widgets/animated_scale.dart';
@@ -20,6 +21,11 @@ import 'package:flutter_stepik/tests/calculator_app/calculator_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main(List<String> args) async {
+  //  debugPaintSizeEnabled = true;
+  //  debugPaintBaselinesEnabled= true;
+  //  debugPaintPointersEnabled = true;
+  //  debugRepaintRainbowEnabled = true;
+  //  debugPrintLayouts = true;
   final preferences = await SharedPreferences.getInstance();
   runApp(MyApp());
 }
